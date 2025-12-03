@@ -20,7 +20,10 @@
     <div id="app">
         <!-- Navigation -->
         <nav class="navbar">
-            <div class="logo">NCLEX<span class="highlight">ESOL</span></div>
+            <div class="nav-left">
+                <button id="home-btn" class="icon-btn" aria-label="Home">🏠</button>
+                <div class="logo">NCLEX<span class="highlight">ESOL</span></div>
+            </div>
             <select id="lang-select" class="lang-select">
                 <option value="en">🇺🇸 English</option>
                 <option value="es">🇪🇸 Español</option>
@@ -40,11 +43,45 @@
                     <p id="welcome-desc">Practice questions designed for ESOL nursing students with built-in vocabulary
                         support.</p>
 
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search topics (e.g., Heart, Diabetes)..." />
+                        <button id="search-btn" class="btn btn-primary search-btn">🔍</button>
+                    </div>
+
                     <div class="menu-grid">
                         <button id="start-btn" class="btn btn-primary menu-btn">Start Practice</button>
                         <button id="medterm-btn" class="btn btn-secondary menu-btn">Medical Terminology</button>
                         <button id="anatomy-btn" class="btn btn-secondary menu-btn">Anatomy Review</button>
                     </div>
+                </div>
+            </section>
+
+            <!-- Category Selection Screen -->
+            <section id="category-screen" class="screen hidden">
+                <button class="btn-link back-btn" onclick="switchScreen('welcome')">← Back</button>
+                <h2 id="category-title">Select a Category</h2>
+                <div class="category-grid">
+                    <button class="category-card" data-cat="fundamentals">
+                        <span class="cat-icon">📚</span>
+                        <span class="cat-name">Fundamentals</span>
+                    </button>
+                    <button class="category-card" data-cat="medsurg">
+                        <span class="cat-icon">🏥</span>
+                        <span class="cat-name">Med/Surg</span>
+                    </button>
+                    <button class="category-card" data-cat="pediatrics">
+                        <span class="cat-icon">👶</span>
+                        <span class="cat-name">Pediatrics</span>
+                    </button>
+                    <button class="category-card" data-cat="critical">
+                        <span class="cat-icon">🚑</span>
+                        <span class="cat-name">Critical Care</span>
+                    </button>
+                    <button class="category-card" data-cat="all">
+                        <span class="cat-icon">🌟</span>
+                        <span class="cat-name">All Topics</span>
+                    </button>
                 </div>
             </section>
 
@@ -61,7 +98,7 @@
             <section id="anatomy-screen" class="screen hidden">
                 <button class="btn-link back-btn" onclick="switchScreen('welcome')">← Back</button>
                 <h2 id="anatomy-title">Anatomy Review</h2>
-                <div id="anatomy-list" class="card-list">
+                <div id="anatomy-list" class="anatomy-grid">
                     <!-- Injected via JS -->
                 </div>
             </section>
@@ -110,9 +147,10 @@
 
                     <div class="divider">OR</div>
 
-                    <button id="get-code-btn" class="btn btn-secondary"
-                        onclick="window.open('https://natalieverse78.gumroad.com/l/efqjb', '_blank')">Get a
-                        Code</button>
+                    <!-- REMOVED USER NAME FROM LINK AS REQUESTED -->
+                    <a href="https://gumroad.com" target="_blank" class="btn btn-secondary"
+                        style="text-decoration: none; display: inline-flex; justify-content: center; align-items: center;">Get
+                        a Code</a>
                     <button id="back-to-home-btn" class="btn-link">Back to Home</button>
                 </div>
             </section>

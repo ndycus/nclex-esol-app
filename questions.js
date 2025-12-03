@@ -2,6 +2,7 @@ const questions = [
     {
         id: 1,
         topic: "Pharmacology",
+        category: "medsurg",
         content: {
             en: {
                 text: "A nurse is caring for a client who is receiving <span class='vocab-word' data-word='warfarin'>warfarin</span>. Which of the following laboratory values should the nurse monitor?",
@@ -27,6 +28,7 @@ const questions = [
     {
         id: 2,
         topic: "Fundamentals",
+        category: "fundamentals",
         content: {
             en: {
                 text: "A nurse is preparing to <span class='vocab-word' data-word='ambulate'>ambulate</span> a client who has been on bed rest. Which action should the nurse take first?",
@@ -45,6 +47,58 @@ const questions = [
                 options: ["Mete yon senti mache", "Tcheke tansyon", "Pann janm kliyan an", "Ede kanpe"],
                 rationale: "Pann janm yo pèmèt tansyon an estabilize anvan kanpe. Sa ede anpeche vètij ak tonbe.",
                 vocab: { "ambulate": "Mache oswa deplase." }
+            }
+        },
+        correctIndex: 2
+    },
+    {
+        id: 3,
+        topic: "Pediatrics",
+        category: "pediatrics",
+        content: {
+            en: {
+                text: "A nurse is assessing a 6-month-old infant. Which finding should the nurse report to the provider?",
+                options: ["Posterior fontanel is closed", "Sitting with support", "Birth weight has doubled", "Head lag when pulled to sit"],
+                rationale: "Head lag (the head falling back) should be gone by 4-5 months. If it is still present at 6 months, it may indicate a developmental delay or neurological problem.",
+                vocab: { "fontanel": "Soft spot on a baby's head." }
+            },
+            es: {
+                text: "Una enfermera evalúa a un bebé de 6 meses. ¿Qué hallazgo debe informar al proveedor?",
+                options: ["La fontanela posterior está cerrada", "Sentado con apoyo", "El peso al nacer se ha duplicado", "Retraso de la cabeza al sentarse"],
+                rationale: "El retraso de la cabeza debe desaparecer a los 4-5 meses. Si todavía está presente a los 6 meses, puede indicar un retraso en el desarrollo.",
+                vocab: { "fontanel": "Punto blando en la cabeza de un bebé." }
+            },
+            ht: {
+                text: "Yon enfimyè ap evalye yon tibebe 6 mwa. Ki rezilta enfimyè a ta dwe rapòte bay doktè a?",
+                options: ["Fontanèl dèyè a fèmen", "Chita ak sipò", "Pwa nesans la double", "Tèt la tonbe dèyè lè yo rale l pou chita"],
+                rationale: "Tèt la tonbe dèyè ta dwe disparèt nan 4-5 mwa. Si li toujou la nan 6 mwa, li ka endike yon reta nan devlopman.",
+                vocab: { "fontanel": "Pwen mou sou tèt yon ti bebe." }
+            }
+        },
+        correctIndex: 3
+    },
+    {
+        id: 4,
+        topic: "Critical Care",
+        category: "critical",
+        content: {
+            en: {
+                text: "A client in the ICU has a sudden drop in oxygen saturation. What is the nurse's priority action?",
+                options: ["Call the provider", "Check the equipment", "Assess the client's airway", "Increase oxygen flow"],
+                rationale: "The priority is always to assess the client first (Airway, Breathing, Circulation). Check if the airway is clear before checking equipment or calling the doctor.",
+                vocab: { "saturation": "The amount of oxygen in the blood." }
+            },
+            es: {
+                text: "Un cliente en la UCI tiene una caída repentina en la saturación de oxígeno. ¿Cuál es la acción prioritaria de la enfermera?",
+                options: ["Llamar al proveedor", "Revisar el equipo", "Evaluar la vía aérea del cliente", "Aumentar el flujo de oxígeno"],
+                rationale: "La prioridad es siempre evaluar al cliente primero (Vía aérea, Respiración, Circulación). Verifique si la vía aérea está despejada antes de revisar el equipo.",
+                vocab: { "saturation": "La cantidad de oxígeno en la sangre." }
+            },
+            ht: {
+                text: "Yon kliyan nan ICU gen yon gout toudenkou nan saturation oksijèn. Ki aksyon priyorite enfimyè a?",
+                options: ["Rele doktè a", "Tcheke ekipman an", "Evalye pasaj lè kliyan an", "Ogmante koule oksijèn"],
+                rationale: "Priyorite a se toujou evalye kliyan an premye (Pasaj lè, Respirasyon, Sikilasyon). Tcheke si pasaj lè a klè anvan ou tcheke ekipman an.",
+                vocab: { "saturation": "Kantite oksijèn nan san an." }
             }
         },
         correctIndex: 2

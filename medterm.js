@@ -1,42 +1,34 @@
 const medTerms = [
-    {
-        term: "Brady-",
-        def: {
-            en: "Slow (e.g., Bradycardia = slow heart rate)",
-            es: "Lento (ej. Bradicardia = ritmo cardíaco lento)",
-            ht: "Ralanti (eg. Bradikardi = batman kè ralanti)"
-        }
-    },
-    {
-        term: "Tachy-",
-        def: {
-            en: "Fast (e.g., Tachycardia = fast heart rate)",
-            es: "Rápido (ej. Taquicardia = ritmo cardíaco rápido)",
-            ht: "Vit (eg. Takikardi = batman kè vit)"
-        }
-    },
-    {
-        term: "Hyper-",
-        def: {
-            en: "High, Above Normal (e.g., Hypertension)",
-            es: "Alto, Por encima de lo normal (ej. Hipertensión)",
-            ht: "Wo, Pi wo pase nòmal (eg. Tansyon wo)"
-        }
-    },
-    {
-        term: "Hypo-",
-        def: {
-            en: "Low, Below Normal (e.g., Hypotension)",
-            es: "Bajo, Por debajo de lo normal (ej. Hipotensión)",
-            ht: "Ba, Pi ba pase nòmal (eg. Tansyon ba)"
-        }
-    },
-    {
-        term: "-itis",
-        def: {
-            en: "Inflammation (e.g., Arthritis)",
-            es: "Inflamación (ej. Artritis)",
-            ht: "Enflamasyon (eg. Atrit)"
-        }
-    }
+    { term: "A- / An-", def: { en: "Without, Not (e.g., Anemia)", es: "Sin, No (ej. Anemia)", ht: "San, Pa (eg. Anemi)" } },
+    { term: "Ab-", def: { en: "Away from (e.g., Abduction)", es: "Lejos de (ej. Abducción)", ht: "Lwen de (eg. Abduksyon)" } },
+    { term: "Ad-", def: { en: "Toward (e.g., Adduction)", es: "Hacia (ej. Aducción)", ht: "Nan direksyon (eg. Aduksyon)" } },
+    { term: "Anti-", def: { en: "Against (e.g., Antibiotic)", es: "Contra (ej. Antibiótico)", ht: "Kont (eg. Antibyotik)" } },
+    { term: "Bi-", def: { en: "Two, Both (e.g., Bilateral)", es: "Dos, Ambos (ej. Bilateral)", ht: "De, Tou de (eg. Bilateral)" } },
+    { term: "Brady-", def: { en: "Slow (e.g., Bradycardia)", es: "Lento (ej. Bradicardia)", ht: "Ralanti (eg. Bradikardi)" } },
+    { term: "Cardi-", def: { en: "Heart (e.g., Cardiology)", es: "Corazón (ej. Cardiología)", ht: "Kè (eg. Kadyoloji)" } },
+    { term: "Cephal-", def: { en: "Head (e.g., Cephalic)", es: "Cabeza (ej. Cefálico)", ht: "Tèt (eg. Sefalik)" } },
+    { term: "Contra-", def: { en: "Against, Opposite (e.g., Contraindicated)", es: "Contra, Opuesto (ej. Contraindicado)", ht: "Kont, Opoze (eg. Kontrè)" } },
+    { term: "Dys-", def: { en: "Difficult, Painful (e.g., Dyspnea)", es: "Difícil, Doloroso (ej. Disnea)", ht: "Difisil, Doulè (eg. Dispne)" } },
+    { term: "Ecto-", def: { en: "Outside (e.g., Ectopic)", es: "Fuera (ej. Ectópico)", ht: "Deyò (eg. Ektopik)" } },
+    { term: "Endo-", def: { en: "Inside (e.g., Endoscopy)", es: "Dentro (ej. Endoscopia)", ht: "Anndan (eg. Endoskopi)" } },
+    { term: "Epi-", def: { en: "Upon, Over (e.g., Epidermis)", es: "Sobre, Encima (ej. Epidermis)", ht: "Sou (eg. Epidèm)" } },
+    { term: "Gastr-", def: { en: "Stomach (e.g., Gastritis)", es: "Estómago (ej. Gastritis)", ht: "Lestomak (eg. Gastrit)" } },
+    { term: "Hemi-", def: { en: "Half (e.g., Hemiplegia)", es: "Mitad (ej. Hemiplejia)", ht: "Mwatye (eg. Emipleji)" } },
+    { term: "Hyper-", def: { en: "High, Above (e.g., Hypertension)", es: "Alto, Encima (ej. Hipertensión)", ht: "Wo, Pi wo (eg. Tansyon wo)" } },
+    { term: "Hypo-", def: { en: "Low, Below (e.g., Hypotension)", es: "Bajo, Debajo (ej. Hipotensión)", ht: "Ba, Pi ba (eg. Tansyon ba)" } },
+    { term: "Inter-", def: { en: "Between (e.g., Intercostal)", es: "Entre (ej. Intercostal)", ht: "Ant (eg. Entèkostal)" } },
+    { term: "Intra-", def: { en: "Within (e.g., Intravenous)", es: "Dentro (ej. Intravenoso)", ht: "Anndan (eg. Intravene)" } },
+    { term: "-itis", def: { en: "Inflammation (e.g., Arthritis)", es: "Inflamación (ej. Artritis)", ht: "Enflamasyon (eg. Atrit)" } },
+    { term: "Leuko-", def: { en: "White (e.g., Leukocyte)", es: "Blanco (ej. Leucocito)", ht: "Blan (eg. Lekosit)" } },
+    { term: "Macro-", def: { en: "Large (e.g., Macrocephaly)", es: "Grande (ej. Macrocefalia)", ht: "Gwo (eg. Makrosefali)" } },
+    { term: "Micro-", def: { en: "Small (e.g., Microbe)", es: "Pequeño (ej. Microbio)", ht: "Ti (eg. Mikwòb)" } },
+    { term: "Myo-", def: { en: "Muscle (e.g., Myocardium)", es: "Músculo (ej. Miocardio)", ht: "Misk (eg. Myokad)" } },
+    { term: "Neuro-", def: { en: "Nerve (e.g., Neurology)", es: "Nervio (ej. Neurología)", ht: "Nè (eg. Newoloji)" } },
+    { term: "Osteo-", def: { en: "Bone (e.g., Osteoporosis)", es: "Hueso (ej. Osteoporosis)", ht: "Zo (eg. Osteyopowoz)" } },
+    { term: "Path-", def: { en: "Disease (e.g., Pathology)", es: "Enfermedad (ej. Patología)", ht: "Maladi (eg. Patoloji)" } },
+    { term: "Peri-", def: { en: "Around (e.g., Pericardium)", es: "Alrededor (ej. Pericardio)", ht: "Alantou (eg. Perikad)" } },
+    { term: "Poly-", def: { en: "Many (e.g., Polyuria)", es: "Muchos (ej. Poliuria)", ht: "Anpil (eg. Poliyiri)" } },
+    { term: "Post-", def: { en: "After (e.g., Postoperative)", es: "Después (ej. Postoperatorio)", ht: "Apre (eg. Postoperatwa)" } },
+    { term: "Pre-", def: { en: "Before (e.g., Preoperative)", es: "Antes (ej. Preoperatorio)", ht: "Anvan (eg. Preoperatwa)" } },
+    { term: "Tachy-", def: { en: "Fast (e.g., Tachycardia)", es: "Rápido (ej. Taquicardia)", ht: "Vit (eg. Takikardi)" } }
 ];

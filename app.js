@@ -3,10 +3,12 @@ let currentQuestionIndex = 0;
 let score = 0;
 let isAnswered = false;
 let currentLang = 'en';
+let currentQuestions = []; // Filtered list of questions
 
 // DOM Elements
 const screens = {
     welcome: document.getElementById('welcome-screen'),
+    category: document.getElementById('category-screen'),
     medterm: document.getElementById('medterm-screen'),
     anatomy: document.getElementById('anatomy-screen'),
     quiz: document.getElementById('quiz-screen'),
@@ -18,6 +20,7 @@ const ui = {
     // Nav
     langSelect: document.getElementById('lang-select'),
     progressBar: document.getElementById('progress-bar'),
+    homeBtn: document.getElementById('home-btn'),
 
     // Welcome
     welcomeTitle: document.getElementById('welcome-title'),
@@ -25,6 +28,12 @@ const ui = {
     startBtn: document.getElementById('start-btn'),
     medTermBtn: document.getElementById('medterm-btn'),
     anatomyBtn: document.getElementById('anatomy-btn'),
+    searchInput: document.getElementById('search-input'),
+    searchBtn: document.getElementById('search-btn'),
+
+    // Category
+    categoryTitle: document.getElementById('category-title'),
+    categoryCards: document.querySelectorAll('.category-card'),
 
     // Quiz
     currentQNum: document.getElementById('current-q-num'),
@@ -47,7 +56,6 @@ const ui = {
     unlockTitle: document.getElementById('unlock-title'),
     unlockDesc: document.getElementById('unlock-desc'),
     unlockBtn: document.getElementById('unlock-btn'),
-    getCodeBtn: document.getElementById('get-code-btn'),
     backToHomeBtn: document.getElementById('back-to-home-btn'),
     unlockCodeInput: document.getElementById('unlock-code-input'),
     unlockError: document.getElementById('unlock-error'),
@@ -70,13 +78,28 @@ ui.langSelect.addEventListener('change', (e) => {
     updateLanguage();
 });
 
-ui.startBtn.addEventListener('click', startQuiz);
+ui.homeBtn.addEventListener('click', () => switchScreen('welcome'));
+ui.startBtn.addEventListener('click', () => switchScreen('category'));
 ui.medTermBtn.addEventListener('click', showMedTerm);
 ui.anatomyBtn.addEventListener('click', showAnatomy);
-ui.restartBtn.addEventListener('click', startQuiz);
+ui.restartBtn.addEventListener('click', () => switchScreen('category'));
 ui.nextBtn.addEventListener('click', nextQuestion);
 ui.unlockBtn.addEventListener('click', validateCode);
 ui.backToHomeBtn.addEventListener('click', () => switchScreen('welcome'));
+
+// Search
+ui.searchBtn.addEventListener('click', performSearch);
+ui.searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') performSearch();
+});
+
+// Categories
+ui.categoryCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const cat = card.dataset.cat;
+        startQuiz(cat);
+    });
+});
 
 // Init
 updateLanguage();
@@ -88,7 +111,7 @@ function updateLanguage() {
     // Update Static Text
     ui.welcomeTitle.textContent = t.welcomeTitle;
     ui.welcomeDesc.textContent = t.welcomeDesc;
-    ui.startBtn.textContent = t.startBtn; // Note: arrows handled by CSS
+    ui.startBtn.textContent = t.startBtn;
     ui.medTermBtn.textContent = t.medTermBtn;
     ui.anatomyBtn.textContent = t.anatomyBtn;
 
@@ -98,7 +121,6 @@ function updateLanguage() {
     ui.unlockTitle.textContent = t.unlockTitle;
     ui.unlockDesc.textContent = t.unlockDesc;
     ui.unlockBtn.textContent = t.unlockBtn;
-    ui.getCodeBtn.textContent = t.getCodeBtn;
     ui.backToHomeBtn.textContent = t.backHome;
 
     ui.resultsTitle.textContent = t.resultsTitle;
@@ -109,7 +131,7 @@ function updateLanguage() {
 
     // Refresh current view if needed
     if (!screens.quiz.classList.contains('hidden')) {
-        loadQuestion(); // Reload current question in new lang
+        loadQuestion();
     }
     if (!screens.medterm.classList.contains('hidden')) {
         renderMedTerm();
@@ -126,8 +148,41 @@ function switchScreen(screenName) {
     screens[screenName].classList.add('active');
 }
 
+// --- Search Logic ---
+function performSearch() {
+    const term = ui.searchInput.value.toLowerCase().trim();
+    if (!term) return;
+
+    // Filter questions that match the term in the current language
+    currentQuestions = questions.filter(q => {
+        const content = q.content[currentLang];
+        return content.text.toLowerCase().includes(term) ||
+            q.topic.toLowerCase().includes(term);
+    });
+
+    if (currentQuestions.length === 0) {
+        alert("No questions found for that topic.");
+        return;
+    }
+
+    startQuiz(null, true); // true = isSearch
+}
+
 // --- Quiz Logic ---
-function startQuiz() {
+function startQuiz(category = 'all', isSearch = false) {
+    if (!isSearch) {
+        if (category === 'all') {
+            currentQuestions = [...questions];
+        } else {
+            currentQuestions = questions.filter(q => q.category === category);
+        }
+    }
+
+    if (currentQuestions.length === 0) {
+        alert("No questions available in this category yet.");
+        return;
+    }
+
     currentQuestionIndex = 0;
     score = 0;
     switchScreen('quiz');
@@ -136,7 +191,7 @@ function startQuiz() {
 
 function loadQuestion() {
     isAnswered = false;
-    const q = questions[currentQuestionIndex];
+    const q = currentQuestions[currentQuestionIndex];
     const content = q.content[currentLang];
 
     // Reset UI
@@ -145,7 +200,7 @@ function loadQuestion() {
     ui.optionsContainer.innerHTML = '';
 
     // Update Progress
-    const progress = ((currentQuestionIndex) / questions.length) * 100;
+    const progress = ((currentQuestionIndex) / currentQuestions.length) * 100;
     ui.progressBar.style.width = `${progress}%`;
 
     // Render Question
@@ -170,7 +225,7 @@ function checkAnswer(selectedIndex) {
     if (isAnswered) return;
     isAnswered = true;
 
-    const q = questions[currentQuestionIndex];
+    const q = currentQuestions[currentQuestionIndex];
     const content = q.content[currentLang];
     const options = ui.optionsContainer.children;
     const isCorrect = selectedIndex === q.correctIndex;
@@ -201,7 +256,7 @@ function nextQuestion() {
     }
 
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < currentQuestions.length) {
         loadQuestion();
     } else {
         showResults();
@@ -233,8 +288,19 @@ function renderAnatomy() {
     ui.anatomyList.innerHTML = '';
     anatomyCards.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'info-card';
-        card.innerHTML = `<h3>${item.title[currentLang]}</h3><p>${item.content[currentLang]}</p>`;
+        card.className = 'anatomy-card';
+        // Add Image
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.title[currentLang];
+        img.className = 'anatomy-img';
+
+        const content = document.createElement('div');
+        content.className = 'anatomy-content';
+        content.innerHTML = `<h3>${item.title[currentLang]}</h3><p>${item.content[currentLang]}</p>`;
+
+        card.appendChild(img);
+        card.appendChild(content);
         ui.anatomyList.appendChild(card);
     });
 }
@@ -251,7 +317,7 @@ function validateCode() {
 
         // Continue
         currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
+        if (currentQuestionIndex < currentQuestions.length) {
             switchScreen('quiz');
             loadQuestion();
         } else {
@@ -267,7 +333,7 @@ function validateCode() {
 function showResults() {
     switchScreen('results');
     ui.finalScore.textContent = score;
-    ui.totalQuestions.textContent = questions.length;
+    ui.totalQuestions.textContent = currentQuestions.length;
     ui.progressBar.style.width = '100%';
 }
 
