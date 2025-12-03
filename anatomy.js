@@ -48,5 +48,25 @@ const anatomyCards = [
             es: "Descompone los alimentos en nutrientes. Incluye boca, esófago, estómago, intestinos.",
             ht: "Dekonpoze manje an eleman nitritif. Gen ladan bouch, ezofaj, lestomak, trip."
         }
+    },
+    {
+        id: "skeletal",
+        title: { en: "Skeletal System", es: "Sistema Esquelético", ht: "Sistèm Eskelèt" },
+        image: "images/skeletal.png",
+        content: {
+            en: "Provides structure and support. Protects organs. Produces blood cells.",
+            es: "Proporciona estructura y soporte. Protege los órganos. Produce células sanguíneas.",
+            ht: "Bay estrikti ak sipò. Pwoteje ògàn yo. Pwodui selil san."
+        }
+    },
+    {
+        id: "muscular",
+        title: { en: "Muscular System", es: "Sistema Muscular", ht: "Sistèm Miskilè" },
+        image: "images/muscular.png",
+        content: {
+            en: "Allows movement. Circulates blood. Generates heat.",
+            es: "Permite el movimiento. Circula la sangre. Genera calor.",
+            ht: "Pèmèt mouvman. Sikile san. Jenere chalè."
+        }
     }
 ];

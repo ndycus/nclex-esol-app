@@ -13,7 +13,8 @@ const screens = {
     anatomy: document.getElementById('anatomy-screen'),
     quiz: document.getElementById('quiz-screen'),
     results: document.getElementById('results-screen'),
-    unlock: document.getElementById('unlock-screen')
+    unlock: document.getElementById('unlock-screen'),
+    resources: document.getElementById('resources-screen')
 };
 
 const ui = {
@@ -28,6 +29,7 @@ const ui = {
     startBtn: document.getElementById('start-btn'),
     medTermBtn: document.getElementById('medterm-btn'),
     anatomyBtn: document.getElementById('anatomy-btn'),
+    resourcesBtn: document.getElementById('resources-btn'),
     searchInput: document.getElementById('search-input'),
     searchBtn: document.getElementById('search-btn'),
 
@@ -86,6 +88,7 @@ ui.homeBtn.addEventListener('click', () => {
 ui.startBtn.addEventListener('click', () => switchScreen('category'));
 ui.medTermBtn.addEventListener('click', showMedTerm);
 ui.anatomyBtn.addEventListener('click', showAnatomy);
+ui.resourcesBtn.addEventListener('click', () => switchScreen('resources'));
 ui.restartBtn.addEventListener('click', () => switchScreen('category'));
 ui.nextBtn.addEventListener('click', nextQuestion);
 ui.unlockBtn.addEventListener('click', validateCode);
@@ -119,6 +122,7 @@ function updateLanguage() {
     ui.startBtn.textContent = t.startBtn;
     ui.medTermBtn.textContent = t.medTermBtn;
     ui.anatomyBtn.textContent = t.anatomyBtn;
+    ui.resourcesBtn.textContent = "Recommended Resources"; // TODO: Add to translations if needed
 
     ui.qLabel.textContent = t.questionLabel;
     ui.nextBtn.textContent = t.nextBtn;

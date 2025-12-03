@@ -5,6 +5,7 @@ const translations = {
         startBtn: "Start Practice",
         medTermBtn: "Medical Terminology",
         anatomyBtn: "Anatomy Review",
+        resourcesBtn: "Resources & Affiliates",
         questionLabel: "Question",
         nextBtn: "Next Question",
         correct: "Correct!",

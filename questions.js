@@ -150,5 +150,81 @@ const questions = [
             }
         },
         correctIndex: 2
+    },
+    {
+        id: 5,
+        topic: "Cardiology",
+        category: "medsurg",
+        content: {
+            en: {
+                text: "A client is diagnosed with <span class='vocab-word' data-word='heart_failure'>heart failure</span>. Which symptom is most common?",
+                options: ["Shortness of breath", "Increased appetite", "Dry skin", "Fever"],
+                rationale: "Heart failure often causes fluid to build up in the lungs, leading to shortness of breath (dyspnea).",
+                vocab: { "heart_failure": "A condition where the heart doesn't pump blood as well as it should." }
+            },
+            es: {
+                text: "Un cliente es diagnosticado con <span class='vocab-word' data-word='heart_failure'>insuficiencia cardíaca</span>. ¿Qué síntoma es más común?",
+                options: ["Falta de aliento", "Aumento del apetito", "Piel seca", "Fiebre"],
+                rationale: "La insuficiencia cardíaca a menudo causa acumulación de líquido en los pulmones, lo que lleva a la falta de aliento (disnea).",
+                vocab: { "heart_failure": "Una condición donde el corazón no bombea sangre tan bien como debería." }
+            },
+            ht: {
+                text: "Yo dyagnostike yon kliyan ak <span class='vocab-word' data-word='heart_failure'>ensifizans kadyak</span>. Ki sentòm ki pi komen?",
+                options: ["Souf kout", "Ogmante apeti", "Po sèk", "Lafyèv"],
+                rationale: "Ensifizans kadyak souvan lakòz likid rasanble nan poumon yo, sa ki lakòz souf kout (dispne).",
+                vocab: { "heart_failure": "Yon kondisyon kote kè a pa ponpe san jan li ta dwe." }
+            },
+            pt: {
+                text: "Um cliente é diagnosticado com <span class='vocab-word' data-word='heart_failure'>insuficiência cardíaca</span>. Qual sintoma é mais comum?",
+                options: ["Falta de ar", "Aumento do apetite", "Pele seca", "Febre"],
+                rationale: "A insuficiência cardíaca frequentemente causa acúmulo de líquido nos pulmões, levando à falta de ar (dispneia).",
+                vocab: { "heart_failure": "Uma condição onde o coração não bombeia sangue tão bem quanto deveria." }
+            },
+            tl: {
+                text: "Ang isang kliyente ay na-diagnose na may <span class='vocab-word' data-word='heart_failure'>heart failure</span>. Aling sintomas ang pinakakaraniwan?",
+                options: ["Kapos sa paghinga", "Tumaas na gana", "Tuyong balat", "Lagnat"],
+                rationale: "Ang pagkabigo sa puso ay madalas na nagiging sanhi ng pag-iipon ng likido sa mga baga, na humahantong sa igsi ng paghinga (dyspnea).",
+                vocab: { "heart_failure": "Isang kondisyon kung saan ang puso ay hindi nagbobomba ng dugo nang maayos." }
+            }
+        },
+        correctIndex: 0
+    },
+    {
+        id: 6,
+        topic: "Safety",
+        category: "fundamentals",
+        content: {
+            en: {
+                text: "Which is the most effective way to prevent the spread of infection?",
+                options: ["Hand hygiene", "Wearing a mask", "Isolation", "Antibiotics"],
+                rationale: "Hand hygiene (washing hands) is universally accepted as the single most effective method to prevent the spread of infection.",
+                vocab: { "hygiene": "Conditions or practices conducive to maintaining health and preventing disease." }
+            },
+            es: {
+                text: "¿Cuál es la forma más efectiva de prevenir la propagación de infecciones?",
+                options: ["Higiene de manos", "Usar una mascarilla", "Aislamiento", "Antibióticos"],
+                rationale: "La higiene de manos es universalmente aceptada como el método más efectivo para prevenir la propagación de infecciones.",
+                vocab: { "hygiene": "Condiciones o prácticas para mantener la salud." }
+            },
+            ht: {
+                text: "Ki fason ki pi efikas pou anpeche enfeksyon gaye?",
+                options: ["Ijyèn men", "Mete yon mask", "Izolasyon", "Antibyotik"],
+                rationale: "Lave men se metòd ki pi efikas pou anpeche enfeksyon gaye.",
+                vocab: { "hygiene": "Pratik pou kenbe sante." }
+            },
+            pt: {
+                text: "Qual é a maneira mais eficaz de prevenir a propagação de infecções?",
+                options: ["Higiene das mãos", "Usar máscara", "Isolamento", "Antibióticos"],
+                rationale: "A higiene das mãos é universalmente aceita como o método mais eficaz para prevenir a propagação de infecções.",
+                vocab: { "hygiene": "Práticas para manter a saúde." }
+            },
+            tl: {
+                text: "Alin ang pinaka-epektibong paraan upang maiwasan ang pagkalat ng impeksyon?",
+                options: ["Kalinisan ng kamay", "Pagsusuot ng maskara", "Pagbubukod", "Antibiotics"],
+                rationale: "Ang kalinisan ng kamay ay ang pinaka-epektibong paraan upang maiwasan ang pagkalat ng impeksyon.",
+                vocab: { "hygiene": "Mga gawi upang mapanatili ang kalusugan." }
+            }
+        },
+        correctIndex: 0
     }
 ];

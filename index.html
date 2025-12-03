@@ -55,6 +55,7 @@
                         <button id="start-btn" class="btn btn-primary menu-btn">Start Practice</button>
                         <button id="medterm-btn" class="btn btn-secondary menu-btn">Medical Terminology</button>
                         <button id="anatomy-btn" class="btn btn-secondary menu-btn">Anatomy Review</button>
+                        <button id="resources-btn" class="btn btn-secondary menu-btn">Recommended Resources</button>
                     </div>
                 </div>
             </section>
@@ -102,6 +103,63 @@
                 <h2 id="anatomy-title">Anatomy Review</h2>
                 <div id="anatomy-list" class="anatomy-grid">
                     <!-- Injected via JS -->
+                </div>
+            </section>
+
+            <!-- Resources Screen -->
+            <section id="resources-screen" class="screen hidden">
+                <button class="btn-link back-btn" onclick="switchScreen('welcome')">← Back</button>
+                <h2 id="resources-title">Recommended Resources</h2>
+                <p class="resources-intro">Boost your NCLEX prep with these recommended books. (Affiliate links)</p>
+                <div class="resources-grid">
+                    <a href="https://www.amazon.com/s?k=saunders+comprehensive+review+nclex+rn&tag=esolnclex-20"
+                        target="_blank" class="resource-card">
+                        <div class="resource-icon">📚</div>
+                        <h3>Saunders Comprehensive Review</h3>
+                        <p>The "Bible" of NCLEX prep. Great for content review.</p>
+                        <span class="btn btn-sm">View on Amazon</span>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=most+common+medical+english+words+jackie+bolen&tag=esolnclex-20"
+                        target="_blank" class="resource-card">
+                        <div class="resource-icon">🗣️</div>
+                        <h3>Most Common Medical English Words</h3>
+                        <p>By Jackie Bolen. Essential vocabulary for clinical practice.</p>
+                        <span class="btn btn-sm">View on Amazon</span>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=longman+dictionary+of+american+english+4th+edition&tag=esolnclex-20"
+                        target="_blank" class="resource-card">
+                        <div class="resource-icon">📖</div>
+                        <h3>Longman Dictionary of American English</h3>
+                        <p>4th Edition. Perfect for understanding American idioms.</p>
+                        <span class="btn btn-sm">View on Amazon</span>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=nclex+study+guide+for+non-native+english+speakers+2nd+edition+2025&tag=esolnclex-20"
+                        target="_blank" class="resource-card">
+                        <div class="resource-icon">🌏</div>
+                        <h3>NCLEX Guide for Non-Native Speakers</h3>
+                        <p>2nd Edition (2025). Fully updated for the new exam.</p>
+                        <span class="btn btn-sm">View on Amazon</span>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=nclex+study+guide+for+the+non+native+english+speaker+maria+issabel&tag=esolnclex-20"
+                        target="_blank" class="resource-card">
+                        <div class="resource-icon">👩‍⚕️</div>
+                        <h3>NCLEX Guide by Maria Issabel</h3>
+                        <p>Written by a BSN, RN who understands the struggle.</p>
+                        <span class="btn btn-sm">View on Amazon</span>
+                    </a>
+                </div>
+
+                <!-- Tutoring Upsell -->
+                <div class="tutoring-section"
+                    style="margin-top: 3rem; background: #EEF2FF; padding: 2rem; border-radius: 1rem; text-align: center; border: 2px solid #C7D2FE;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎓</div>
+                    <h2 style="color: #4F46E5; margin-bottom: 0.5rem;">Need 1-on-1 Help?</h2>
+                    <p
+                        style="color: #4B5563; margin-bottom: 1.5rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+                        Struggling with the language nuances or critical thinking? Book a personalized coaching session.
+                    </p>
+                    <a href="#" class="btn btn-primary" style="text-decoration: none; display: inline-block;">Book a
+                        Coaching Session</a>
                 </div>
             </section>
 

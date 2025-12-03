@@ -30,5 +30,11 @@ const medTerms = [
     { term: "Poly-", def: { en: "Many (e.g., Polyuria)", es: "Muchos (ej. Poliuria)", ht: "Anpil (eg. Poliyiri)" } },
     { term: "Post-", def: { en: "After (e.g., Postoperative)", es: "Después (ej. Postoperatorio)", ht: "Apre (eg. Postoperatwa)" } },
     { term: "Pre-", def: { en: "Before (e.g., Preoperative)", es: "Antes (ej. Preoperatorio)", ht: "Anvan (eg. Preoperatwa)" } },
-    { term: "Tachy-", def: { en: "Fast (e.g., Tachycardia)", es: "Rápido (ej. Taquicardia)", ht: "Vit (eg. Takikardi)" } }
+    { term: "Tachy-", def: { en: "Fast (e.g., Tachycardia)", es: "Rápido (ej. Taquicardia)", ht: "Vit (eg. Takikardi)" } },
+    { term: "Thorac-", def: { en: "Chest (e.g., Thoracotomy)", es: "Tórax (ej. Toracotomía)", ht: "Pwatrin (eg. Torakotomi)" } },
+    { term: "Thromb-", def: { en: "Clot (e.g., Thrombosis)", es: "Coágulo (ej. Trombosis)", ht: "Kayo (eg. Tronboz)" } },
+    { term: "Toxic-", def: { en: "Poison (e.g., Toxicology)", es: "Veneno (ej. Toxicología)", ht: "Pwazon (eg. Toksikoloji)" } },
+    { term: "Trans-", def: { en: "Across (e.g., Transdermal)", es: "A través (ej. Transdérmico)", ht: "Atravè (eg. Transdèmal)" } },
+    { term: "Uni-", def: { en: "One (e.g., Unilateral)", es: "Uno (ej. Unilateral)", ht: "Youn (eg. Inilateral)" } },
+    { term: "Vas-", def: { en: "Vessel (e.g., Vasodilation)", es: "Vaso (ej. Vasodilatación)", ht: "Veso (eg. Vazodilatasyon)" } }
 ];
