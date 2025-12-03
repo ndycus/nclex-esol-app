@@ -21,6 +21,18 @@ const questions = [
                 options: ["PT/INR", "aPTT", "Emoglobin", "Plakèt"],
                 rationale: "Warfarin se yon antikoagilan (san eklèsi). Tès PT/INR la mezire konbyen tan li pran pou san kayo. Sa a se tès espesifik yo itilize pou kontwole terapi warfarin.",
                 vocab: { "warfarin": "Yon medikaman yo itilize pou anpeche boul san danjere." }
+            },
+            pt: {
+                text: "Um enfermeiro está cuidando de um cliente que está recebendo <span class='vocab-word' data-word='warfarin'>varfarina</span>. Qual dos seguintes valores laboratoriais o enfermeiro deve monitorar?",
+                options: ["PT/INR", "aPTT", "Hemoglobina", "Plaquetas"],
+                rationale: "A varfarina é um anticoagulante. O teste PT/INR mede quanto tempo o sangue leva para coagular. Este é o teste específico usado para monitorar a terapia com varfarina.",
+                vocab: { "warfarin": "Um medicamento usado para prevenir coágulos sanguíneos prejudiciais." }
+            },
+            tl: {
+                text: "Ang isang nars ay nag-aalaga sa isang kliyente na tumatanggap ng <span class='vocab-word' data-word='warfarin'>warfarin</span>. Alin sa mga sumusunod na halaga ng laboratoryo ang dapat subaybayan ng nars?",
+                options: ["PT/INR", "aPTT", "Hemoglobin", "Platelets"],
+                rationale: "Ang warfarin ay isang anticoagulant. Sinusukat ng pagsusulit sa PT/INR kung gaano katagal bago mamuo ang dugo. Ito ang partikular na pagsusuring ginagamit upang subaybayan ang therapy ng warfarin.",
+                vocab: { "warfarin": "Isang gamot na ginagamit upang maiwasan ang mapaminsalang pamumuo ng dugo." }
             }
         },
         correctIndex: 0
@@ -47,6 +59,18 @@ const questions = [
                 options: ["Mete yon senti mache", "Tcheke tansyon", "Pann janm kliyan an", "Ede kanpe"],
                 rationale: "Pann janm yo pèmèt tansyon an estabilize anvan kanpe. Sa ede anpeche vètij ak tonbe.",
                 vocab: { "ambulate": "Mache oswa deplase." }
+            },
+            pt: {
+                text: "Um enfermeiro está se preparando para <span class='vocab-word' data-word='ambulate'>deambular</span> um cliente que esteve em repouso no leito. Qual ação o enfermeiro deve tomar primeiro?",
+                options: ["Aplicar um cinto de marcha", "Avaliar a pressão arterial", "Balançar as pernas do cliente", "Ajudar a ficar de pé"],
+                rationale: "Balançar as pernas permite que a pressão arterial se estabilize antes de ficar de pé. Isso ajuda a prevenir tonturas e quedas.",
+                vocab: { "ambulate": "Caminhar ou mover-se." }
+            },
+            tl: {
+                text: "Ang isang nars ay naghahanda na <span class='vocab-word' data-word='ambulate'>maglakad</span> sa isang kliyente na nakahiga sa kama. Aling aksyon ang dapat gawin muna ng nars?",
+                options: ["Maglagay ng gait belt", "Suriin ang presyon ng dugo", "Ilawit ang mga binti ng kliyente", "Tumulong sa pagtayo"],
+                rationale: "Ang paglawit ng mga binti ay nagpapahintulot sa presyon ng dugo na maging matatag bago tumayo. Nakakatulong ito na maiwasan ang pagkahilo at pagbagsak.",
+                vocab: { "ambulate": "Maglakad o kumilos." }
             }
         },
         correctIndex: 2
@@ -73,6 +97,18 @@ const questions = [
                 options: ["Fontanèl dèyè a fèmen", "Chita ak sipò", "Pwa nesans la double", "Tèt la tonbe dèyè lè yo rale l pou chita"],
                 rationale: "Tèt la tonbe dèyè ta dwe disparèt nan 4-5 mwa. Si li toujou la nan 6 mwa, li ka endike yon reta nan devlopman.",
                 vocab: { "fontanel": "Pwen mou sou tèt yon ti bebe." }
+            },
+            pt: {
+                text: "Um enfermeiro está avaliando um bebê de 6 meses. Qual achado o enfermeiro deve relatar ao provedor?",
+                options: ["A fontanela posterior está fechada", "Sentado com apoio", "O peso ao nascer dobrou", "Atraso da cabeça ao sentar"],
+                rationale: "O atraso da cabeça deve desaparecer aos 4-5 meses. Se ainda estiver presente aos 6 meses, pode indicar um atraso no desenvolvimento.",
+                vocab: { "fontanel": "Ponto mole na cabeça de um bebê." }
+            },
+            tl: {
+                text: "Sinusuri ng isang nars ang isang 6 na buwang gulang na sanggol. Aling paghahanap ang dapat iulat ng nars sa provider?",
+                options: ["Ang posterior fontanel ay sarado", "Nakaupo na may suporta", "Ang timbang ng kapanganakan ay nadoble", "Pagkahuli ng ulo kapag hinila upang umupo"],
+                rationale: "Ang pagkahuli ng ulo ay dapat mawala sa 4-5 na buwan. Kung naroroon pa rin ito sa 6 na buwan, maaari itong magpahiwatig ng pagkaantala sa pag-unlad.",
+                vocab: { "fontanel": "Malambot na bahagi sa ulo ng sanggol." }
             }
         },
         correctIndex: 3
@@ -99,6 +135,18 @@ const questions = [
                 options: ["Rele doktè a", "Tcheke ekipman an", "Evalye pasaj lè kliyan an", "Ogmante koule oksijèn"],
                 rationale: "Priyorite a se toujou evalye kliyan an premye (Pasaj lè, Respirasyon, Sikilasyon). Tcheke si pasaj lè a klè anvan ou tcheke ekipman an.",
                 vocab: { "saturation": "Kantite oksijèn nan san an." }
+            },
+            pt: {
+                text: "Um cliente na UTI tem uma queda repentina na saturação de oxigênio. Qual é a ação prioritária do enfermeiro?",
+                options: ["Chamar o provedor", "Verificar o equipamento", "Avaliar as vias aéreas do cliente", "Aumentar o fluxo de oxigênio"],
+                rationale: "A prioridade é sempre avaliar o cliente primeiro (Vias Aéreas, Respiração, Circulação). Verifique se as vias aéreas estão desobstruídas antes de verificar o equipamento.",
+                vocab: { "saturation": "A quantidade de oxigênio no sangue." }
+            },
+            tl: {
+                text: "Ang isang kliyente sa ICU ay may biglaang pagbaba sa oxygen saturation. Ano ang priyoridad na aksyon ng nars?",
+                options: ["Tumawag sa provider", "Suriin ang kagamitan", "Suriin ang daanan ng hangin ng kliyente", "Dagdagan ang daloy ng oxygen"],
+                rationale: "Ang priyoridad ay palaging suriin muna ang kliyente (Airway, Breathing, Circulation). Suriin kung malinaw ang daanan ng hangin bago suriin ang kagamitan.",
+                vocab: { "saturation": "Ang dami ng oxygen sa dugo." }
             }
         },
         correctIndex: 2

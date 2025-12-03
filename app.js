@@ -45,6 +45,7 @@ const ui = {
     feedbackTitle: document.getElementById('feedback-title'),
     feedbackRationale: document.getElementById('feedback-rationale'),
     nextBtn: document.getElementById('next-btn'),
+    speakBtn: document.getElementById('speak-btn'),
 
     // Results
     finalScore: document.getElementById('final-score'),
@@ -78,7 +79,10 @@ ui.langSelect.addEventListener('change', (e) => {
     updateLanguage();
 });
 
-ui.homeBtn.addEventListener('click', () => switchScreen('welcome'));
+ui.homeBtn.addEventListener('click', () => {
+    window.speechSynthesis.cancel(); // Stop speaking
+    switchScreen('welcome');
+});
 ui.startBtn.addEventListener('click', () => switchScreen('category'));
 ui.medTermBtn.addEventListener('click', showMedTerm);
 ui.anatomyBtn.addEventListener('click', showAnatomy);
@@ -86,6 +90,7 @@ ui.restartBtn.addEventListener('click', () => switchScreen('category'));
 ui.nextBtn.addEventListener('click', nextQuestion);
 ui.unlockBtn.addEventListener('click', validateCode);
 ui.backToHomeBtn.addEventListener('click', () => switchScreen('welcome'));
+ui.speakBtn.addEventListener('click', speakQuestion);
 
 // Search
 ui.searchBtn.addEventListener('click', performSearch);
@@ -106,7 +111,7 @@ updateLanguage();
 
 // Functions
 function updateLanguage() {
-    const t = translations[currentLang];
+    const t = translations[currentLang] || translations['en'];
 
     // Update Static Text
     ui.welcomeTitle.textContent = t.welcomeTitle;
@@ -142,10 +147,36 @@ function updateLanguage() {
 }
 
 function switchScreen(screenName) {
+    window.speechSynthesis.cancel(); // Stop speaking on screen switch
     Object.values(screens).forEach(s => s.classList.add('hidden'));
     Object.values(screens).forEach(s => s.classList.remove('active'));
     screens[screenName].classList.remove('hidden');
     screens[screenName].classList.add('active');
+}
+
+// --- TTS Logic ---
+function speakQuestion() {
+    window.speechSynthesis.cancel(); // Stop any previous speech
+
+    const q = currentQuestions[currentQuestionIndex];
+    if (!q) return;
+
+    const content = q.content[currentLang] || q.content['en'];
+    const textToRead = `${content.text.replace(/<[^>]*>/g, '')}. ${content.options.join('. ')}`;
+
+    const utterance = new SpeechSynthesisUtterance(textToRead);
+
+    // Set language
+    const langMap = {
+        'en': 'en-US',
+        'es': 'es-ES',
+        'ht': 'fr-FR', // Haitian Creole often defaults to French voice if HT not available
+        'pt': 'pt-BR',
+        'tl': 'en-PH' // Tagalog often uses PH English voice if TL not available
+    };
+    utterance.lang = langMap[currentLang] || 'en-US';
+
+    window.speechSynthesis.speak(utterance);
 }
 
 // --- Search Logic ---
@@ -155,7 +186,7 @@ function performSearch() {
 
     // Filter questions that match the term in the current language
     currentQuestions = questions.filter(q => {
-        const content = q.content[currentLang];
+        const content = q.content[currentLang] || q.content['en'];
         return content.text.toLowerCase().includes(term) ||
             q.topic.toLowerCase().includes(term);
     });
@@ -192,7 +223,7 @@ function startQuiz(category = 'all', isSearch = false) {
 function loadQuestion() {
     isAnswered = false;
     const q = currentQuestions[currentQuestionIndex];
-    const content = q.content[currentLang];
+    const content = q.content[currentLang] || q.content['en'];
 
     // Reset UI
     ui.feedbackArea.classList.add('hidden');
@@ -226,10 +257,10 @@ function checkAnswer(selectedIndex) {
     isAnswered = true;
 
     const q = currentQuestions[currentQuestionIndex];
-    const content = q.content[currentLang];
+    const content = q.content[currentLang] || q.content['en'];
     const options = ui.optionsContainer.children;
     const isCorrect = selectedIndex === q.correctIndex;
-    const t = translations[currentLang];
+    const t = translations[currentLang] || translations['en'];
 
     // Style Options
     options[selectedIndex].classList.add(isCorrect ? 'correct' : 'wrong');
@@ -247,15 +278,21 @@ function checkAnswer(selectedIndex) {
 }
 
 function nextQuestion() {
+    window.speechSynthesis.cancel(); // Stop speaking
+
     const isPremium = localStorage.getItem('nclex_premium') === 'true';
     const FREE_LIMIT = 3;
 
+    // Check if we hit the limit AND user is not premium
     if (!isPremium && currentQuestionIndex + 1 >= FREE_LIMIT) {
         switchScreen('unlock');
         return;
     }
 
+    // Increment index
     currentQuestionIndex++;
+
+    // Check if we have more questions
     if (currentQuestionIndex < currentQuestions.length) {
         loadQuestion();
     } else {
@@ -274,7 +311,8 @@ function renderMedTerm() {
     medTerms.forEach(item => {
         const card = document.createElement('div');
         card.className = 'info-card';
-        card.innerHTML = `<h3>${item.term}</h3><p>${item.def[currentLang]}</p>`;
+        const def = item.def[currentLang] || item.def['en'];
+        card.innerHTML = `<h3>${item.term}</h3><p>${def}</p>`;
         ui.medTermList.appendChild(card);
     });
 }
@@ -289,15 +327,18 @@ function renderAnatomy() {
     anatomyCards.forEach(item => {
         const card = document.createElement('div');
         card.className = 'anatomy-card';
+
         // Add Image
         const img = document.createElement('img');
         img.src = item.image;
-        img.alt = item.title[currentLang];
+        img.alt = (item.title[currentLang] || item.title['en']);
         img.className = 'anatomy-img';
 
         const content = document.createElement('div');
         content.className = 'anatomy-content';
-        content.innerHTML = `<h3>${item.title[currentLang]}</h3><p>${item.content[currentLang]}</p>`;
+        const title = item.title[currentLang] || item.title['en'];
+        const desc = item.content[currentLang] || item.content['en'];
+        content.innerHTML = `<h3>${title}</h3><p>${desc}</p>`;
 
         card.appendChild(img);
         card.appendChild(content);

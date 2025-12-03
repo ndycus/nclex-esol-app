@@ -28,6 +28,8 @@
                 <option value="en">🇺🇸 English</option>
                 <option value="es">🇪🇸 Español</option>
                 <option value="ht">🇭🇹 Kreyòl</option>
+                <option value="pt">🇧🇷 Português</option>
+                <option value="tl">🇵🇭 Tagalog</option>
             </select>
         </nav>
         <div class="progress-container">
@@ -109,7 +111,10 @@
                     <div class="question-header">
                         <span class="question-number"><span id="q-label">Question</span> <span
                                 id="current-q-num">1</span></span>
-                        <span class="topic-badge" id="topic-badge">Pharmacology</span>
+                        <div class="header-right">
+                            <button id="speak-btn" class="icon-btn" aria-label="Read Aloud">🔊</button>
+                            <span class="topic-badge" id="topic-badge">Pharmacology</span>
+                        </div>
                     </div>
                     <p class="question-text" id="question-text">
                         <!-- Question text will be injected here -->
@@ -147,7 +152,6 @@
 
                     <div class="divider">OR</div>
 
-                    <!-- REMOVED USER NAME FROM LINK AS REQUESTED -->
                     <a href="https://gumroad.com" target="_blank" class="btn btn-secondary"
                         style="text-decoration: none; display: inline-flex; justify-content: center; align-items: center;">Get
                         a Code</a>
